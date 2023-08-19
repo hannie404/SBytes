@@ -1,0 +1,1 @@
+// export { default as sony } from '../images/png/sony.png';
