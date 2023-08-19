@@ -1,1 +1,1 @@
-// export { default as sony } from '../images/png/sony.png';
+export { default as Logo } from './logo/SBytesLight.png';
