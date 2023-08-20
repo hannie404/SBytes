@@ -1,14 +1,13 @@
 import React from 'react';
 import Form from './components/Form';
-import Navigation from './components/Navigation';
 import styled from 'styled-components';
+import HomeRoutes from './pages/HomeRoutes';
 
 
 function App() {
   return (
     <SBytesBG>
-      <Navigation />
-      <Form />
+      <HomeRoutes />
     </SBytesBG>  
   );
 }

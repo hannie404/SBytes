@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Logo } from '../assets';
+import { Logo, Search, Cart, User } from '../assets';
 import styled from 'styled-components';
+import { NavLink, useLocation } from 'react-router-dom';
 import {
   MDBContainer,
   MDBNavbar,
@@ -22,9 +23,9 @@ export default function App() {
   const [showBasic, setShowBasic] = useState(false);
 
   return (
-    <NavBar expand='lg' dark bgColor='light'>
+    <NavBar expand='lg' dark bgColor='light' className='pt-lg-5 pb-lg-5'>
       <MDBContainer fluid>
-        <MDBNavbarBrand href='#'><LogoBytes src={Logo}/></MDBNavbarBrand>
+        <MDBNavbarBrandMobile href='#'><LogoBytes src={Logo}/></MDBNavbarBrandMobile>
 
         <MDBNavbarToggler
           aria-controls='navbarSupportedContent'
@@ -36,39 +37,51 @@ export default function App() {
         </MDBNavbarToggler>
 
         <MDBCollapse navbar show={showBasic}>
-          <MDBNavbarNav className='mr-auto mb-2 mb-lg-0'>
-            <MDBNavbarItem>
-              <LinkPage active aria-current='page' href='#'>
+          <MDBNavbarNav className='mr-md-auto mb-2 mb-lg-0 w-auto'>
+            <MDBNavbarItem className='mt-sm-2'>
+              <LinkPage active aria-current='page' to='/' className="ms-lg-3 mt-sm-3">
                 Shop
               </LinkPage>
             </MDBNavbarItem>
 
-            <MDBNavbarItem>
+            <MDBNavbarItem className='mt-sm-2 mt-lg-1'>
               <MDBDropdown>
-                <LinkDropdown tag='a' className='nav-link' role='button'>
+                <LinkDropdown tag='a' role='button' className="ms-lg-3 nav-link">
                   Products
                 </LinkDropdown>
-                <MDBDropdownMenu>
-                  <MDBDropdownItem link>Action</MDBDropdownItem>
-                  <MDBDropdownItem link>Another action</MDBDropdownItem>
-                  <MDBDropdownItem link>Something else here</MDBDropdownItem>
+                <MDBDropdownMenu className='mt-lg-3'>
+                  <LinkPageProducts link to='/Laptops'>Laptops</LinkPageProducts>
+                  <LinkPageProducts link to='/Desktops'>Desktops & All-in-Ones</LinkPageProducts>
+                  <LinkPageProducts link to='/Chromebooks'>Chromebooks</LinkPageProducts>
+                  <LinkPageProducts link to='/Tablets'>Tablets</LinkPageProducts>
+                  <LinkPageProducts link to='/Monitors'>Monitors</LinkPageProducts>
                 </MDBDropdownMenu>
               </MDBDropdown>
             </MDBNavbarItem>
 
-            <MDBNavbarItem>
-              <LinkPage href='#'>Business</LinkPage>
+            <MDBNavbarItem className='mt-sm-2'>
+              <LinkPage to='/Business' className="ms-lg-3">Business</LinkPage>
             </MDBNavbarItem>
 
-            <MDBNavbarItem>
-              <LinkPage href='#'>Education</LinkPage>
+            <MDBNavbarItem className='mt-sm-2'>
+              <LinkPage to='/Education' className="ms-lg-3">Education</LinkPage>
             </MDBNavbarItem>
           </MDBNavbarNav>
 
-          <form className='d-flex input-group w-auto'>
-            <input type='search' className='form-control' placeholder='Type query' aria-label='Search' />
-            <MDBBtn color='primary'>Search</MDBBtn>
+          <NavLogo to='/Home'><LogoBytes src={Logo}/></NavLogo>
+
+          <form className='d-flex input-group w-auto mt-sm-3 mt-lg-0 d-flex align-items-center'>
+            <SearchInput type='search' className='form-control' placeholder='Search' aria-label='Search' />
+            <SearchBar><SearchIcon src={Search} /></SearchBar>
+            
+            <MDBNavbarLink to='/Profile'>
+              <img src={ User } className='ms-lg-3 ms-md-2 ms-2'/>
+            </MDBNavbarLink>
+            <MDBNavbarLink to='/Cart'>
+              <img src={ Cart } className='ms-lg-3 ms-md-2 ms-2'/>
+            </MDBNavbarLink>
           </form>
+
         </MDBCollapse>
       </MDBContainer>
     </NavBar>
@@ -77,15 +90,88 @@ export default function App() {
 
 const NavBar = styled(MDBNavbar)`
   background: #111827 !important;
+
+  @media only screen and (min-width: 992px){
+    padding-left: 2rem;
+    padding-right: 2rem !important;
+  }
 `;
 const LogoBytes = styled.img`
   width: 7rem;
 `;
-const LinkPage = styled(MDBNavbarLink)`
+const LinkPage = styled(NavLink)`
+  color: lightgray;
+  text-transform: uppercase;
+  font-size: smaller;
+
+  &:hover{
+    color: #DC2626;
+  }
+
+  @media only screen and (max-width: 992px){
+    margin-top: 1rem !important;
+  }
+`;
+const LinkPageProducts = styled(MDBDropdownItem)`
   text-transform: uppercase;
   font-size: smaller;
 `;
 const LinkDropdown = styled(MDBDropdownToggle)`
   text-transform: uppercase;
   font-size: smaller;
+  color: lightgray;
+
+  &:hover{
+    color: #DC2626;
+  }
+`;
+const SearchBar = styled(MDBBtn)`
+  border-radius: 0px 50px 50px 0px !important;
+  background-color: #1F2937 !important;
+  box-shadow: none;
+  padding-left: 15px !important;
+  padding-right: 1.5rem !important;
+
+  &:hover{
+    background-color: #DC2626 !important;
+    box-shadow: none !important;
+  }
+`;
+const SearchIcon = styled.img`
+  width: 18px;
+`;
+const SearchInput = styled.input`
+  background: #1F2937;
+  border-radius: 50px;
+  border: 2px solid #1F2937;
+  padding-left: 1.5rem;
+  color: #D1D5DB;
+
+  &::placeholder{
+    color: #D1D5DB;
+  }
+
+  &:focus{
+    border: 1px solid #1F2937 !important;
+  }
+
+  @media only screen and (min-width: 991px){
+    width: 10rem !important;
+    padding-left: 2rem;
+    padding-right: 2rem !important;
+  }
+`;
+const NavLogo = styled(MDBNavbarBrand)`
+  width: 100%;
+  display: flex !important;
+  justify-content: center !important;
+
+  @media only screen and (max-width: 992px){
+    display: none !important;
+  }
+`;
+const MDBNavbarBrandMobile = styled(MDBNavbarBrand)`
+  @media only screen and (min-width: 992px){
+    display: none;
+  }
 `;
