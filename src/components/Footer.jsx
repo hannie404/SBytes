@@ -1,73 +1,66 @@
 import React from 'react';
-import { Navbar, Container, Row, Col } from 'react-bootstrap';
-import  Twitter  from '../images/svg/twitter.svg';
-import  Instagram  from '../images/svg/instagram.svg';
-import  Youtube  from '../images/svg/youtube.svg';
-import  Linkedin  from '../images/svg/linkedin.svg';
-import  Logo from '../images/eliteLogo/elitesiteW.png'
+import { MDBNavbar, MDBContainer, MDBRow, MDBCol, MDBFooter, MDBIcon } from 'mdbreact';
+import Logo from '../assets/logo/SBytesLight.png';
+import styled from 'styled-components';
+import {
+  Instagram,
+  Youtube,
+  Linkedin,
+  Twitter
+} from '../assets';
 
 const Footer = () => {
   return (
-    <footer style={{ background: '#11112B', color: 'white', marginTop: 'auto' }}>
-      <Container>
-          <Row xs={12} sm={6} md={3}>
-            <div style={{ textAlign: 'left' }} className='d-flex flex-row justify-content-between w-100 align-items-center mt-2'>
-              <img className="logoFooter" src={Logo} title="Logo" alt="Logo" href='/home' />
-              <div className="social-links mt-3">
-                <a>
-                  <img src={Instagram} title="Instagram" alt="Instagram"  className='me-2'/>
-                </a>
-                <a>
-                  <img src={Youtube} title="Youtube" alt="Youtube"  className='me-2'/>
-                </a>
-                <a>
-                  <img src={Linkedin} title="Linkedin" alt="Linkedin"  className='me-2'/>
-                </a>
-                <a>
-                  <img src={Twitter} title="Twitter" alt="Twitter" className='me-2' />
-                </a>
-              </div>
+    <MDBFooter color="dark" style={{ background: '#111827', color: 'white'}}>
+      <MDBContainer>
+        <MDBRow className='mt-2'>
+          <div style={{ textAlign: 'left' }} className='d-flex flex-row justify-content-between w-100 align-items-center'>
+            <LogoFooter src={Logo} title="Logo" alt="Logo" href='/home' />
+            <div className="social-links mt-3">
+              <a><MDBIconBytes fab icon="instagram" /></a>
+              <a><MDBIconBytes fab icon="youtube" /></a>
+              <a><MDBIconBytes fab icon="linkedin" /></a>
+              <a><MDBIconBytes fab icon="twitter" /></a>
             </div>
-        </Row>
+          </div>
+        </MDBRow>
         <hr />
-        <Row className="footer-top-wrapper justify-content-between" style={{ gap: '48px', padding: '16px', minHeight: '160px' }}>
-          <Col xs={12} sm={6} md={3}>
+        <MDBRow className="footer-top-wrapper justify-content-between" style={{ gap: '48px', padding: '16px', minHeight: '160px' }}>
+          <MDBColBytes lg="4" md='5'  className='w-lg-0'>
             <menu style={{ textAlign: 'left', lineHeight: 2 }}>
-              <h2>About us</h2>
-              <li>
+              <BytesFooter>About us</BytesFooter>
+              <BytesList>
               We offer tailored solutions, exceptional service, and cutting-edge technology to empower your business's success. Discover the Elite difference today!
-              </li>
+              </BytesList>
             </menu>
-          </Col>
-          <Col xs={12} sm={6} md={3}>
-            <menu style={{ textAlign: 'left', lineHeight: 2  }}>
-              <h2>Services</h2>
-              <li>
-                <a>Web Development</a>
-              </li>
-              <li>
-                <a>Mobile Development</a>
-              </li>
-              <li>
-                <a>Cyber Security</a>
-              </li>
+          </MDBColBytes>
+          <MDBColBytes lg="3" md='5' className='w-md-0'>
+            <menu style={{ textAlign: 'left', lineHeight: 2 }}>
+              <BytesFooter>Services</BytesFooter>
+              <BytesList><a>Web Development</a></BytesList>
+              <BytesList><a>Mobile Development</a></BytesList>
+              <BytesList><a>Cyber Security</a></BytesList>
             </menu>
-          </Col>
-          <Col xs={12} sm={6} md={3}>
-            <menu style={{ textAlign: 'left', lineHeight: 2  }}>
-              <h2>Contact</h2>
-              <li>
-                <a>info@elitesite.com.au</a>
-              </li>
-              <li>
-                <a>+63 9234 323 4244</a>
-              </li>
+          </MDBColBytes>
+          <MDBColBytes lg="3" md='5' className='w-md-0'>
+            <menu style={{ textAlign: 'left', lineHeight: 2 }}>
+              <BytesFooter>Services</BytesFooter>
+              <BytesList><a>Web Development</a></BytesList>
+              <BytesList><a>Mobile Development</a></BytesList>
+              <BytesList><a>Cyber Security</a></BytesList>
             </menu>
-          </Col>
-        </Row>
+          </MDBColBytes>
+          <MDBColBytes lg="3" md='5' className='w-md-0'>
+            <menu style={{ textAlign: 'left', lineHeight: 2 }}>
+              <BytesFooter>Contact</BytesFooter>
+              <BytesList><a>info@sbytes.com.au</a></BytesList>
+              <BytesList><a>+63 9234 323 4244</a></BytesList>
+            </menu>
+          </MDBColBytes>
+        </MDBRow>
         <hr />
-        <Row className="footer-bottom" style={{
-          height: '60px',
+        <MDBRow className="pb-3" style={{
+          height: 'auto',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
@@ -76,20 +69,42 @@ const Footer = () => {
           marginLeft: '0',
           textAlign: 'center'
         }}>
-          <Col className='footerDown'>
-          <small>&copy; EliteSite. 2023 All rights reserved</small>
-          </Col>
-
-          <Col className='footerDown'>
-            <small style={{marginRight: '15px'}}>Terms and Services</small>
-            <small>Privacy Policy</small>
-          </Col>
-
-        </Row>
-      </Container>
-
-    </footer>
+          <MDBCol className='footerDown'>
+            <small>&copy; SBytes. 2023 All rights reserved</small>
+          </MDBCol>
+        </MDBRow>
+      </MDBContainer>
+    </MDBFooter>
   );
 };
 
 export default Footer;
+
+const LogoFooter = styled.img`
+  width: 10rem;
+  margin-top: 1rem;
+
+  @media only screen and (max-width: 540px){
+    width: 5rem;
+  }
+`;
+const MDBIconBytes = styled(MDBIcon)`
+  width: 2rem;
+  font-size: 1.5rem;
+  margin-left: 0.5rem;
+
+  @media only screen and (max-width: 540px){
+    font-size: 1rem;
+    margin-left: 10px;
+    width: fit-content;
+  }
+`;
+const BytesList = styled.li`
+  list-style: none;
+`;
+const MDBColBytes = styled(MDBCol)`
+  /* width: 20%; */
+`;
+const BytesFooter = styled.h2`
+  color: #DC2626;
+`;

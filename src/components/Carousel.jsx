@@ -8,14 +8,13 @@ import {
 const StyledCarousel = styled(MDBCarousel)`
   .carousel-control-prev,
   .carousel-control-next {
-    /* background-color: #DC2626; */
     width: 50px;
 
     &-icon {
       background-image: url('path_to_your_new_arrow_image.svg');
       width: 30px;
       height: 30px;
-      background: #DC2626;
+      background: #111827;
       padding: 2rem;
       display: flex;
       align-items: center;
@@ -23,12 +22,13 @@ const StyledCarousel = styled(MDBCarousel)`
       border-radius: 50%;
     }
 
-    @media only screen and (max-width: 992px){
-    &-icon {
-      width: 20px;
-      height: 20px;
+      @media only screen and (max-width: 992px){
+      &-icon {
+        background: none;
+        width: 20px;
+        height: 20px;
+      }
     }
-  }
   }
 
   .carousel-control-prev {
