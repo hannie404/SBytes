@@ -56,7 +56,7 @@ export default function Carousel() {
       <MDBCarouselItem
         className='w-100 d-block'
         itemId={1}
-        src='https://images.acer.com/is/image/acer/acer-laptop-swift-edge-main-banner-2:Primary-Hero-XL'
+        src='https://images.acer.com/is/image/acer/acer-for-business-solution-hero-banner-business:Primary-Hero-XL'
         alt='...'
       >
         <h5>First slide label</h5>
@@ -65,29 +65,11 @@ export default function Carousel() {
       <MDBCarouselItem
         className='w-100 d-block'
         itemId={2}
-        src='https://images.acer.com/is/image/acer/predator-laptop-helios-16-agw-banner-1:Primary-Hero-L'
+        src='https://images.acer.com/is/image/acer/acer-for-business-solution-hero-banner-microsoft-inspire:Primary-Hero-XL'
         alt='...'
       >
         <h5>Second slide label</h5>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-      </MDBCarouselItem>
-      <MDBCarouselItem
-        className='w-100 d-block'
-        itemId={3}
-        src='https://images.acer.com/is/image/acer/Nitro_17_AMD_(Spacia_PEH)_banner-1:Primary-Hero-XL'
-        alt='...'
-      >
-        <h5>Third slide label</h5>
-        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-      </MDBCarouselItem>
-      <MDBCarouselItem
-        className='w-100 d-block'
-        itemId={3}
-        src='https://images.acer.com/is/image/acer/predator-laptop-helios-16-agw-banner-1:Primary-Hero-XL'
-        alt='...'
-      >
-        <h5>Third slide label</h5>
-        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
       </MDBCarouselItem>
     </StyledCarousel>
   );
