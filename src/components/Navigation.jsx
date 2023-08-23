@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Logo, Search, Cart, User } from '../assets';
 import styled from 'styled-components';
 import { NavLink, useLocation } from 'react-router-dom';
@@ -21,9 +21,26 @@ import {
 
 export default function App() {
   const [showBasic, setShowBasic] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+        const offset = window.scrollY;
+        if (offset > 10) {
+            setScrolled(true);
+        } else {
+            setScrolled(false);
+        }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+        window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   return (
-    <NavBar expand='lg' dark bgColor='light' className='pt-lg-5 pb-lg-5'>
+    <NavBar scrolled={scrolled} expand='lg' dark bgColor='light' className='pt-lg-5 pb-lg-5 fixed-top'>
       <MDBContainer fluid>
         <MDBNavbarBrandMobile href='#'><LogoBytes src={Logo}/></MDBNavbarBrandMobile>
 
@@ -89,7 +106,8 @@ export default function App() {
 }
 
 const NavBar = styled(MDBNavbar)`
-  background: #111827 !important;
+  background: ${props => props.scrolled ? 'rgba(68, 66, 66, 0.1)' : '#111827'} !important;
+  backdrop-filter: ${props => props.scrolled ? 'blur(10px)' : 'none'};
 
   @media only screen and (min-width: 992px){
     padding-left: 2rem;

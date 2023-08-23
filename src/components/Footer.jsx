@@ -250,4 +250,4 @@ const SBytesH6 = styled.h6`
 `;
 const SBytesIcon = styled(MDBIcon)`
   color: #DC2626
-`
+`;
