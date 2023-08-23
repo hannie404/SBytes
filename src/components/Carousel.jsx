@@ -9,6 +9,7 @@ const StyledCarousel = styled(MDBCarousel)`
   .carousel-control-prev,
   .carousel-control-next {
     width: 50px;
+    transition: all 0.3s ease;  // Add transition effect here 
 
     &-icon {
       background-image: url('path_to_your_new_arrow_image.svg');
@@ -22,7 +23,7 @@ const StyledCarousel = styled(MDBCarousel)`
       border-radius: 50%;
     }
 
-      @media only screen and (max-width: 992px){
+    @media only screen and (max-width: 992px) {
       &-icon {
         background: none;
         width: 20px;
@@ -39,20 +40,31 @@ const StyledCarousel = styled(MDBCarousel)`
     right: 20px;
   }
 
+  &:hover {
+    .carousel-control-prev {
+      left: 60px;
+    }
+
+    .carousel-control-next {
+      right: 60px;
+    }
+  }
+
   .carousel-indicators {
     li {
-      background-color: #DC2626; // Default or unselected indicator color: ;
-      
+      background-color: #DC2626;
+
       &.active {
-        background-color: #DC2626; // Active or selected indicator color: ;
+        background-color: #DC2626;
       }
     }
   }
 `;
 
+
 export default function Carousel() {
   return (
-    <StyledCarousel showControls showIndicators>
+    <StyledCarousel showControls showIndicators className='mt-5'>
       <MDBCarouselItem
         className='w-100 d-block'
         itemId={1}
