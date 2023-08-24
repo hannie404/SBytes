@@ -6,13 +6,15 @@ import {
 } from 'mdb-react-ui-kit';
 
 const StyledCarousel = styled(MDBCarousel)`
+  padding-top: 6rem !important;
+
   .carousel-control-prev,
   .carousel-control-next {
     width: 50px;
-    transition: all 0.3s ease;  
+    transition: all 0.3s ease;  // Add transition effect here 
 
     &-icon {
-      background-image: url('path_to_your_new_arrow_image.svg');
+      /* background-image: url('../assets/svg/arrow-left.svg'); */
       width: 30px;
       height: 30px;
       background: #111827;
@@ -29,6 +31,8 @@ const StyledCarousel = styled(MDBCarousel)`
         width: 20px;
         height: 20px;
       }
+
+      padding-top: 1rem !important;
     }
   }
 
@@ -62,13 +66,13 @@ const StyledCarousel = styled(MDBCarousel)`
 `;
 
 
-export default function Carousel() {
+export default function ShopCarousel() {
   return (
-    <StyledCarousel showControls showIndicators className='mt-5'>
+    <StyledCarousel showControls showIndicators>
       <MDBCarouselItem
         className='w-100 d-block'
         itemId={1}
-        src='https://images.acer.com/is/image/acer/acer-laptop-swift-edge-main-banner-2:Primary-Hero-XL'
+        src='https://static-ecpa.acer.com/media/wysiwyg/AcerUS_23Q3_eComm_W34_Aspire_1620X600.jpg'
         alt='...'
       >
         <h5>First slide label</h5>
@@ -77,7 +81,7 @@ export default function Carousel() {
       <MDBCarouselItem
         className='w-100 d-block'
         itemId={2}
-        src='https://images.acer.com/is/image/acer/predator-laptop-helios-16-agw-banner-1:Primary-Hero-L'
+        src='https://static-ecpa.acer.com/media/wysiwyg/AcerUS_23Q3_eComm_W34_SwiftEdge16_1620X600.jpg'
         alt='...'
       >
         <h5>Second slide label</h5>
@@ -86,16 +90,7 @@ export default function Carousel() {
       <MDBCarouselItem
         className='w-100 d-block'
         itemId={3}
-        src='https://images.acer.com/is/image/acer/Nitro_17_AMD_(Spacia_PEH)_banner-1:Primary-Hero-XL'
-        alt='...'
-      >
-        <h5>Third slide label</h5>
-        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-      </MDBCarouselItem>
-      <MDBCarouselItem
-        className='w-100 d-block'
-        itemId={3}
-        src='https://images.acer.com/is/image/acer/predator-laptop-helios-16-agw-banner-1:Primary-Hero-XL'
+        src='https://static-ecpa.acer.com/media/wysiwyg/AcerUS_23Q3_eComm_W34_AOPEN_1620X600.jpg'
         alt='...'
       >
         <h5>Third slide label</h5>
