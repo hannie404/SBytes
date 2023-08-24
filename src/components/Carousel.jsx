@@ -9,7 +9,7 @@ const StyledCarousel = styled(MDBCarousel)`
   .carousel-control-prev,
   .carousel-control-next {
     width: 50px;
-    transition: all 0.3s ease;  // Add transition effect here 
+    transition: all 0.3s ease;  
 
     &-icon {
       background-image: url('path_to_your_new_arrow_image.svg');

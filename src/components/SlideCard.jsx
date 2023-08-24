@@ -23,19 +23,32 @@ const StyledArrows = styled.div`
     }
   }
 
-  .splide__arrow--prev {
+  @media only screen and (max-width: 600px){
+    .splide__arrow {
+      display: none;
+    }
+  }
+
+  /* .splide__arrow--prev {
     
   }
 
   .splide__arrow--next {
 
-  }
+  } */
 `;
 const StyledArrowsBytes = styled(StyledArrows)`
   border-color: #DC2626 !important;
 `;
 const SBytesImg = styled.img`
   width: 15rem;
+`;
+const Buttons = styled(MDBContainer)`
+  /* visibility: hidden;
+
+  @media only screen and (max-width: 600px){
+    visibility: visible;
+  } */
 `;
 const Card = styled.div`
   background: #2a3442;
@@ -44,12 +57,34 @@ const Card = styled.div`
   padding: 1rem;
   padding-top: 0%;
   border-top: 5px solid #DC2626;
+
+  &:hover{
+    background: #2f3846;
+    border-color: #41e680;
+  }
+
+  &:hover ${Buttons} {
+    visibility: normal !important;
+  }
 `;
 const Price = styled.p`
   color: #41e680;
 `;
 const HeartDiv = styled.div`
   background: #DC2626;
+  transition: background 0.3s ease-in-out;
+
+  &:hover{
+    background: #41e680;
+  }
+`;
+const CartDiv = styled.div`
+  transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+
+  &:hover{
+    background: #f7dbdb !important;
+    color: #DC2626;
+  }
 `;
 const Name = styled.h4`
   color: #41e680;
@@ -88,10 +123,10 @@ function SlideCard({ laptops }) {
                 <p>{laptop.description}</p>
                 <Price>Price: ${laptop.price}</Price>
               </Card>
-              <MDBContainer fluid className='d-flex ps-3 pe-3'>
+              <Buttons fluid className='d-flex ps-3 pe-3'>
                 <HeartDiv className='w-25 d-flex align-items-center justify-content-center pt-3 pb-3' type='button' id='addToWish'><img src={ Heart } /></HeartDiv>
-                <div className='w-75 d-flex align-items-center justify-content-center bg-light pt-3 pb-3' type='button' id='addToCart'>Add to Cart</div>
-              </MDBContainer>
+                <CartDiv className='w-75 d-flex align-items-center justify-content-center bg-light pt-3 pb-3' type='button' id='addToCart'>Add to Cart</CartDiv>
+              </Buttons>
             </SplideSlide>
           ))}
         </Splide>
