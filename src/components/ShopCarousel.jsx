@@ -14,7 +14,7 @@ const StyledCarousel = styled(MDBCarousel)`
     transition: all 0.3s ease;  // Add transition effect here 
 
     &-icon {
-      background-image: url('path_to_your_new_arrow_image.svg');
+      /* background-image: url('../assets/svg/arrow-left.svg'); */
       width: 30px;
       height: 30px;
       background: #111827;
