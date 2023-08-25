@@ -22,7 +22,6 @@ import {
 export default function App() {
   const [showBasic, setShowBasic] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-
   useEffect(() => {
     const handleScroll = () => {
         const offset = window.scrollY;
@@ -94,6 +93,7 @@ export default function App() {
             <LinkPage to='/Profile'>
               <img src={ User } className='ms-lg-3 ms-md-2 ms-2'/>
             </LinkPage>
+            
             <LinkPage to='/Cart'>
               <img src={ Cart } className='ms-lg-3 ms-md-2 ms-2'/>
             </LinkPage>
