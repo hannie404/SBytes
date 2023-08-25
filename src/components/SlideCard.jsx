@@ -28,14 +28,6 @@ const StyledArrows = styled.div`
       display: none;
     }
   }
-
-  /* .splide__arrow--prev {
-    
-  }
-
-  .splide__arrow--next {
-
-  } */
 `;
 const StyledArrowsBytes = styled(StyledArrows)`
   border-color: #DC2626 !important;
@@ -44,7 +36,11 @@ const SBytesImg = styled.img`
   width: 15rem;
 `;
 const Buttons = styled(MDBContainer)`
+  visibility: hidden;
 
+  @media only screen and (max-width: 600px) {
+    visibility: visible;
+  }
 `;
 const Card = styled.div`
   background: #2a3442;
@@ -94,7 +90,7 @@ const Name = styled.h4`
 `;
 const SbytesSlide = styled(SplideSlide)`
   &:hover ${Buttons}{
-    visibility: hidden;
+    visibility: visible;
   }
 `;
 
@@ -113,7 +109,7 @@ function SlideCard({ laptops }) {
               1300: {
                 perPage: 3,
               },
-              768: {
+              900: {
                 perPage: 2,
               },
               600: {

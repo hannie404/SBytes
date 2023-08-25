@@ -91,12 +91,12 @@ export default function App() {
             <SearchInput type='search' className='form-control' placeholder='Search' aria-label='Search' />
             <SearchBar><SearchIcon src={Search} /></SearchBar>
             
-            <MDBNavbarLink to='/Profile'>
+            <LinkPage to='/Profile'>
               <img src={ User } className='ms-lg-3 ms-md-2 ms-2'/>
-            </MDBNavbarLink>
-            <MDBNavbarLink to='/Cart'>
+            </LinkPage>
+            <LinkPage to='/Cart'>
               <img src={ Cart } className='ms-lg-3 ms-md-2 ms-2'/>
-            </MDBNavbarLink>
+            </LinkPage>
           </form>
 
         </MDBCollapse>
@@ -106,7 +106,7 @@ export default function App() {
 }
 
 const NavBar = styled(MDBNavbar)`
-  background: ${props => props.scrolled ? 'rgba(68, 66, 66, 0.1)' : '#111827'} !important;
+  background: ${props => props.scrolled ? 'rgba(3, 5, 36, 0.712)' : '#111827'} !important;
   backdrop-filter: ${props => props.scrolled ? 'blur(10px)' : 'none'};
 
   @media only screen and (min-width: 992px){
@@ -184,12 +184,12 @@ const NavLogo = styled(MDBNavbarBrand)`
   display: flex !important;
   justify-content: center !important;
 
-  @media only screen and (max-width: 992px){
+  @media only screen and (max-width: 991px){
     display: none !important;
   }
 `;
 const MDBNavbarBrandMobile = styled(MDBNavbarBrand)`
-  @media only screen and (min-width: 992px){
+  @media only screen and (min-width: 991px){
     display: none;
   }
 `;

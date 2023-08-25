@@ -1,8 +1,15 @@
-import React from 'react'
+import React from 'react';
+import LogIn from '../components/LogIn';
+import Navigation from '../components/Navigation';
+import Footer from '../components/Footer';
 
 function Profile() {
   return (
-    <div>Profile</div>
+    <div>
+      <Navigation />
+      <LogIn />
+      <Footer />
+    </div>
   )
 }
 

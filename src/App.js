@@ -15,5 +15,5 @@ function App() {
 export default App;
 
 const SBytesBG = styled.div`
-  background: #1F2937;
+  background: #fff;
 `;

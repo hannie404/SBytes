@@ -26,6 +26,8 @@ function HomeRoutes() {
         <Route path='/Desktops' element={<Desktops/>}></Route>
         <Route path='/Laptops' element={<Laptops/>}></Route>
         <Route path='/Monitors' element={<Monitors/>}></Route>
+        <Route path='/Profile' element={<Profile/>}></Route>
+        <Route path='/Cart' element={<Cart/>}></Route>
       </Routes>
     </div>
   )

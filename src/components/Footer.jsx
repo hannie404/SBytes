@@ -114,7 +114,7 @@ import { MDBFooter, MDBContainer, MDBRow, MDBCol, MDBIcon } from 'mdb-react-ui-k
 
 export default function App() {
   return (
-    <MDBFooter bgColor='#111827' className='text-center text-lg-start text-light'>
+    <MDBFooterDark bgColor='#111827' className='text-center text-lg-start text-light'>
       <section className='d-flex justify-content-center justify-content-lg-between p-4 border-bottom border-danger'>
         <div className='me-5 d-none d-lg-block'>
           <span>Get connected with us on social networks:</span>
@@ -230,10 +230,13 @@ export default function App() {
           SBytes Tech
         </SBytes>
       </div>
-    </MDBFooter>
+    </MDBFooterDark>
   );
 }
 
+const MDBFooterDark = styled(MDBFooter)`
+  background: #111827;
+`;
 const LogoFooter = styled.img`
   width: 10rem;
   margin-top: 1rem;
