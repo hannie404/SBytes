@@ -26,13 +26,14 @@ const CardBody = styled.div`
 
 const MDBCards = styled(MDBCard)`
   margin: 0px;
-  height: 100%;
+  height: 105%;
 `;
 
 const Title = styled.h4`
   font-weight: 700;
   color: black;
   font-size: 2rem;
+  margin-bottom: 1rem;
 `;
 
 export function CardList() {
@@ -54,7 +55,7 @@ export function CardList() {
         {cardData.map((card) => (
           <div className="col-12 col-sm-6 col-md-3 p-4">
             <MDBCards>
-              <MDBCard key={card.id}>
+              <MDBCard className="h-100" key={card.id}>
                 <MDBCardImage
                   src={card.imageUrl}
                   alt={`Card ${card.id}`}
@@ -66,7 +67,10 @@ export function CardList() {
                     <Title>{card.title}</Title>
                   </MDBCardTitle>
                   <MDBCardText className="mb-3">{card.content}</MDBCardText>
-                  <MDBBtn className="bg-danger mt-2" href={card.link}>
+                  <MDBBtn
+                    className="bg-danger mt-2 position-absolute bottom-0 start-0 translate-left m-3"
+                    href={card.link}
+                  >
                     Learn More
                   </MDBBtn>
                 </MDBCardBody>

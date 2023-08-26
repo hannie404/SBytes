@@ -16,7 +16,7 @@ const Text1 = styled.div`
   text-align: center;
   margin: 2rem auto;
   max-width: 960px;
-  padding-bottom: 50px;
+  padding-bottom: 10px;
   font-size: 1.2rem;
 `;
 
@@ -72,7 +72,9 @@ export function HorizontalCardList() {
               position="top"
             />
             <MDBCardBody>
-              <MDBCardTitle className="text-center">Where to Buy?</MDBCardTitle>
+              <MDBCardTitle className="text-center">
+                <MDBBtn className="bg-danger">Where to Buy?</MDBBtn>
+              </MDBCardTitle>
             </MDBCardBody>
           </MDBCard>
         </MDBCol>
@@ -85,7 +87,7 @@ export function HorizontalCardList() {
             />
             <MDBCardBody>
               <MDBCardTitle className="text-center">
-                Request a Quote
+                <MDBBtn className="bg-danger">Request a Quote</MDBBtn>
               </MDBCardTitle>
             </MDBCardBody>
           </MDBCard>
@@ -99,7 +101,7 @@ export function HorizontalCardList() {
             />
             <MDBCardBody>
               <MDBCardTitle className="text-center">
-                Channel Partners
+                <MDBBtn className="bg-danger">Channel Partners</MDBBtn>
               </MDBCardTitle>
             </MDBCardBody>
           </MDBCard>
