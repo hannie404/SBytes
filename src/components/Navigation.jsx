@@ -69,11 +69,11 @@ export default function App({currentUser}) {
                   Products
                 </LinkDropdown>
                 <MDBDropdownMenu className='mt-lg-3'>
-                  <LinkPageProducts link to='/Laptops'>Laptops</LinkPageProducts>
-                  <LinkPageProducts link to='/Desktops'>Desktops & All-in-Ones</LinkPageProducts>
-                  <LinkPageProducts link to='/Chromebooks'>Chromebooks</LinkPageProducts>
-                  <LinkPageProducts link to='/Tablets'>Tablets</LinkPageProducts>
-                  <LinkPageProducts link to='/Monitors'>Monitors</LinkPageProducts>
+                  <LinkPageProducts link ><NavLinkBytes to='/Laptops'>Laptops</NavLinkBytes></LinkPageProducts>
+                  <LinkPageProducts link ><NavLinkBytes to='/Desktops'>Desktops & All-in-Ones</NavLinkBytes></LinkPageProducts>
+                  <LinkPageProducts link ><NavLinkBytes to='/Chromebooks'>Chromebooks</NavLinkBytes></LinkPageProducts>
+                  <LinkPageProducts link ><NavLinkBytes to='/Tablets'>Tablets</NavLinkBytes></LinkPageProducts>
+                  <LinkPageProducts link ><NavLinkBytes to='/Monitors'>Monitors</NavLinkBytes></LinkPageProducts>
                 </MDBDropdownMenu>
               </MDBDropdown>
             </MDBNavbarItem>
@@ -87,14 +87,13 @@ export default function App({currentUser}) {
             </MDBNavbarItem>
           </MDBNavbarNav>
 
-          <NavLogo to='/Home'><LogoBytes src={Logo}/></NavLogo>
+          <NavLogo to='/Admin'><LogoBytes src={Logo}/></NavLogo>
 
           <form className='d-flex input-group w-auto mt-sm-3 mt-lg-0 d-flex align-items-center'>
             <SearchInput type='search' className='form-control' placeholder='Search' aria-label='Search' />
             <SearchBar><SearchIcon src={Search} /></SearchBar>
             
-            <LinkPage to='/SignUp'>
-              {user.FirstName}
+            <LinkPage to='/SignIn'>
               <img src={ User } className='ms-lg-3 ms-md-2 ms-2'/>
             </LinkPage>
             
@@ -183,7 +182,7 @@ const SearchInput = styled.input`
     padding-right: 2rem !important;
   }
 `;
-const NavLogo = styled(MDBNavbarBrand)`
+const NavLogo = styled(NavLink)`
   width: 100%;
   display: flex !important;
   justify-content: center !important;
@@ -196,4 +195,7 @@ const MDBNavbarBrandMobile = styled(MDBNavbarBrand)`
   @media only screen and (min-width: 991px){
     display: none;
   }
+`;
+const NavLinkBytes = styled(NavLink)`
+  color: #1F2937;
 `;

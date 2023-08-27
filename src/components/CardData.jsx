@@ -10,7 +10,7 @@ const cardData = [
   },
   {
     id: 2,
-    title: "Small & Medium SIzed Business",
+    title: "Business",
     content:
       "SBytes for Business lets SMBs do more for less with devices that are easy to use, manage, deploy, and upgrade – saving them precious resources.",
     imageUrl:

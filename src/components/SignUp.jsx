@@ -58,7 +58,6 @@ export default function SignUp() {
 
   const onSubmitHandler = async (e) => {
     e.preventDefault();
-    alert("clicked");
     setLoading(true);
 
     const formData = new FormData();
