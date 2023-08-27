@@ -3,6 +3,7 @@ import { Splide, SplideSlide, SplideTrack } from '@splidejs/react-splide';
 import styled from 'styled-components';
 import { Heart } from '../assets';
 import { MDBContainer} from 'mdb-react-ui-kit';
+import axios from 'axios';
 
 const StyledTrack = styled.div`
   color: #DC2626;
@@ -94,14 +95,32 @@ const SbytesSlide = styled(SplideSlide)`
   }
 `;
 
-function SlideCard({ laptops }) {
+function SlideCard({ laptops, title }) {
+  const USformatter = new Intl.NumberFormat("en-US"); // for formatting the price
+
+  const accountValidation = async () => {
+    await axios.get("/api/accounts/accountvalidation").then(({ data }) => {
+      console.log(data.Status);
+      if (data.Status === 200) {
+        alert("Success!");
+      } else {
+        alert(`Failed! Status : ${data.Message}`);
+      }
+    })
+  }
+
+
   return (
     <StyledTrack className='mt-5 mb-5 ps-lg-5 pe-lg-5 ps-3 pe-3 d-flex flex-column justify-content-center'>
+<<<<<<< HEAD
         <h2 className='text-dark'>{laptops[0].title}</h2>
+=======
+        <h2 className='text-light'>{title}</h2>
+>>>>>>> 8381cfd44096392b6b047ff3e8a30e1ba95aa05f
       <StyledArrowsBytes className='border-top border-3 mt-2 pt-5'>
         <Splide
           options={{
-            type: 'loop',
+            // type: 'loop',
             perPage: 4,
             autoplay: true,
             arrows: true,
@@ -121,15 +140,26 @@ function SlideCard({ laptops }) {
         >
           {laptops.map((laptop, index) => (
             <SbytesSlide key={index}>
-              <Card className="laptop-card text-light d-flex flex-column align-items-center justify-content-center text-center ps-lg-5 pe-lg-5 ps-md-3 pe-md-3">
-                <SBytesImg src={laptop.img} />
-                <Name className='mb-3'>{laptop.name}</Name>
-                <p>{laptop.description}</p>
-                <Price>Price: ${laptop.price}</Price>
+              <Card className="laptop-card text-light d-flex flex-column align-items-center justify-content-center ps-lg-5 pe-lg-5 ps-md-3 pe-md-3">
+                <SBytesImg src={`http://localhost:8000/storage/products/images/${laptop.ImageUrl}`} />
+                <Name className='mb-3'>{laptop.ProductSeriesName} {laptop.ProductModel}</Name>
+                <p>
+                  <ul>
+                    <li><b>Operating System</b> : {laptop.OperatingSystem}</li>
+                    <li><b>CPU</b> : {laptop.Cpu}</li>
+                    <li><b>Memory</b> : {laptop.Memory}</li>
+                    <li><b>Storage</b> : {laptop.Storage}</li>
+                    <li><b>Integreated GFX</b> : {laptop.IntegratedGfx}</li>
+                    <li><b>Refresh Rate</b> : {laptop.RefreshRate}</li>
+                    <li><b>Resolution</b> : {laptop.Resolution}</li>
+                    <li><b>Screen Size</b> : {laptop.ScreenSize}</li>
+                  </ul>
+                </p>
+                <Price>Price: ₱{USformatter.format(laptop.Price)}</Price>
               </Card>
               <Buttons fluid className='d-flex ps-3 pe-3 mt-3'>
                 <HeartDiv className='w-25 d-flex align-items-center justify-content-center pt-3 pb-3' type='button' id='addToWish'><img src={ Heart } /></HeartDiv>
-                <CartDiv className='w-75 d-flex align-items-center justify-content-center pt-3 pb-3' type='button' id='addToCart'>Add to Cart</CartDiv>
+                <CartDiv className='w-75 d-flex align-items-center justify-content-center pt-3 pb-3' type='button' id='addToCart' onClick={accountValidation}>Add to Cart</CartDiv>
               </Buttons>
             </SbytesSlide>
           ))}

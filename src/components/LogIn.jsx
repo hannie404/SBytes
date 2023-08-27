@@ -3,8 +3,12 @@ import * as reactIconsRi from "https://cdn.skypack.dev/react-icons@4.2.0/ri";
 import * as reactJss from "https://cdn.skypack.dev/react-jss@10.5.1";
 import React, { useState, createContext, useContext } from 'react';
 import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
+<<<<<<< HEAD
 import { styled } from "styled-components";
 import { LogoDark } from '../assets';
+=======
+import axios from "axios";
+>>>>>>> 8381cfd44096392b6b047ff3e8a30e1ba95aa05f
 const { ThemeProvider, withStyles } = reactJss;
 const { FaChessBishop, FaPlusCircle, FaArrowLeft } = reactIconsFa;
 const { RiMoonClearLine, RiSunLine } = reactIconsRi;
@@ -582,29 +586,50 @@ function LoginPage(props) {
    }
 
    const emailValidate = (value) => {
-      const emailRegex = /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/;
-      if (!emailRegex.test(value)) return 'Wrong email';
-      return undefined;
+      // const emailRegex = /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/;
+      // if (!emailRegex.test(value)) return 'Wrong email';
+      // return undefined;
    }
 
    const passwordValidate = (value) => {
-      if (!value || value.length < 6) return 'Password must be more than 6 characters';
-      return undefined;
+      // if (!value || value.length < 6) return 'Password must be more than 6 characters';
+      // return undefined;
    }
 
 
    const loginSubmitHandler = async (e) => {
       e.preventDefault();
 
-      let errors = [];
-      let emailCheck = emailValidate(email);
-      if (emailCheck) errors.push(emailCheck);
+      const formData = new FormData();
 
-      let passwordCheck = passwordValidate(password);
-      if (passwordCheck) errors.push(passwordCheck);
+      formData.append('email', email);
+      formData.append('password', password);
 
-      setFormErrors(errors);
-      if (!errors.length) setSuccess(true);
+      await axios
+      .post("/api/accounts/login", formData)
+      .then(({data}) => {
+         console.log(data.Message);
+         alert(`here ${data.Message}`);
+         console.log(data.User)
+         history("/");
+      })
+      .catch(({response}) => {
+         if (response.status === 422) {  // 422 - Unprocessable Entity
+           alert(`there ${response.data.errors}`);
+         } else {
+           alert(`doon ${response.data.errors}`)
+         }
+       })
+
+      // let errors = [];
+      // let emailCheck = emailValidate(email);
+      // if (emailCheck) errors.push(emailCheck);
+
+      // let passwordCheck = passwordValidate(password);
+      // if (passwordCheck) errors.push(passwordCheck);
+
+      // setFormErrors(errors);
+      // if (!errors.length) setSuccess(true);
    }
 
    return <div className={classes.loginCard}>

@@ -22,7 +22,7 @@ function HomeRoutes() {
         <Route path='/Business' element={<Business/>}></Route>
         <Route path='/Cart' element={<Cart/>}></Route>
         <Route path='/Education' element={<Education/>}></Route>
-        <Route path='/Profile' element={<Profile/>}></Route>
+        <Route path='/Profile/*' element={<Profile/>}></Route>
         <Route path='/Chromebooks' element={<Chromebooks/>}></Route>
         <Route path='/Tablets' element={<Tablets/>}></Route>
         <Route path='/Desktops' element={<Desktops/>}></Route>
