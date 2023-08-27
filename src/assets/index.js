@@ -1,4 +1,5 @@
 export { default as Logo } from './logo/SBytesLight.png';
+export { default as LogoDark } from './logo/SBytesDark.png';
 export { default as Search } from './svg/search.svg';
 export { default as User } from './svg/user.svg';
 export { default as Cart } from './svg/shopping-cart.svg';
@@ -13,3 +14,7 @@ export { default as Linkedin } from './svg/linkedin.svg';
 // Laptops
 export { default as Laptop1 } from './png/laptop1.png';
 export { default as Laptop2 } from './png/laptop2.png';
+
+// logo
+export { default as Google } from './png/google2.png';
+export { default as Spiral } from './svg/spiral.svg';

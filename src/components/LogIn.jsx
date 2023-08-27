@@ -3,10 +3,16 @@ import * as reactIconsRi from "https://cdn.skypack.dev/react-icons@4.2.0/ri";
 import * as reactJss from "https://cdn.skypack.dev/react-jss@10.5.1";
 import React, { useState, createContext, useContext } from 'react';
 import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
+import { styled } from "styled-components";
+import { LogoDark } from '../assets';
 const { ThemeProvider, withStyles } = reactJss;
-// const { BrowserRouter, Switch, Route, useNavigate } = ReactRouterDOM;
 const { FaChessBishop, FaPlusCircle, FaArrowLeft } = reactIconsFa;
 const { RiMoonClearLine, RiSunLine } = reactIconsRi;
+
+const LogoSbytes = styled.img`
+   width: 5rem !important ;
+   text-align: center;
+`;
 
 const mainTheme = {
    sizes: {
@@ -240,6 +246,7 @@ const inputStyles = theme => ({
 
 const toggleThemeButtonStyles = theme => ({
    button: {
+      marginTop: '5rem',
       border: 'none',
       padding: '5px',
       cursor: 'pointer',
@@ -250,7 +257,7 @@ const toggleThemeButtonStyles = theme => ({
       color: theme.text.outlinedButton,
       background: (props) => {
          if (props.transparent) return 'transparent';
-         return theme.type === 'light' ? '#4d515d' : '#f2f3f5'
+         return theme.type === 'light' ? '#DC2626' : '#f2f3f5'
       },
       color: (props) => {
          if (props.transparent) return theme.text.activeLink;
@@ -509,9 +516,8 @@ function RegistrationPage(props) {
 
    return <div className={classes.loginCard}>
 
-      <div style={{ display: 'flex', alignItems: 'center', fontWeight: 100, marginBottom: '25px' }}>
-         <FaChessBishop style={{ marginRight: '10px', fontSize: '1.3em', color: 'red' }} />
-         <span>SBytes Tech</span>
+      <div style={{ display: 'flex', justifyContent: 'center', fontWeight: 100, marginBottom: '25px' }}>
+         <LogoSbytes src={LogoDark}/>
       </div>
 
       <h1 className={classes.cardHeader}>Sign Up</h1>
@@ -651,7 +657,7 @@ LoginPage = withStyles(loginPageStyles)(LoginPage);
 
 
 export default function App() {
-   return <CustomThemeProvider className='mt-5 pt-5'>
+   return <CustomThemeProvider>
 
                <LoginLayout>
                   <RegistrationPage />
@@ -660,7 +666,6 @@ export default function App() {
                <LoginLayout>
                   <LoginPage />
                </LoginLayout>
-     
-
+   
    </CustomThemeProvider>
 }

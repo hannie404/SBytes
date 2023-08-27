@@ -9,6 +9,8 @@ import Tablets from '../pages/products/Tablets';
 import Desktops from '../pages/products/Desktops';
 import Laptops from '../pages/products/Laptops';
 import Monitors from '../pages/products/Monitors';
+import SignUp from '../components/SignUp';
+import SignIn from '../components/SignIn';
 import { Routes, Route } from 'react-router-dom';
 
 function HomeRoutes() {
@@ -28,6 +30,8 @@ function HomeRoutes() {
         <Route path='/Monitors' element={<Monitors/>}></Route>
         <Route path='/Profile' element={<Profile/>}></Route>
         <Route path='/Cart' element={<Cart/>}></Route>
+        <Route path='/SignUp' element={<SignUp/>}></Route>
+        <Route path='/SignIn' element={<SignIn/>}></Route>
       </Routes>
     </div>
   )

@@ -97,7 +97,7 @@ const SbytesSlide = styled(SplideSlide)`
 function SlideCard({ laptops }) {
   return (
     <StyledTrack className='mt-5 mb-5 ps-lg-5 pe-lg-5 ps-3 pe-3 d-flex flex-column justify-content-center'>
-        <h2 className='text-light'>{laptops[0].title}</h2>
+        <h2 className='text-dark'>{laptops[0].title}</h2>
       <StyledArrowsBytes className='border-top border-3 mt-2 pt-5'>
         <Splide
           options={{

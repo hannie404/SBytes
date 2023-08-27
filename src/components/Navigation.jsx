@@ -91,7 +91,7 @@ export default function App() {
             <SearchInput type='search' className='form-control' placeholder='Search' aria-label='Search' />
             <SearchBar><SearchIcon src={Search} /></SearchBar>
             
-            <LinkPage to='/Profile'>
+            <LinkPage to='/SignUp'>
               <img src={ User } className='ms-lg-3 ms-md-2 ms-2'/>
             </LinkPage>
             <LinkPage to='/Cart'>
@@ -106,7 +106,7 @@ export default function App() {
 }
 
 const NavBar = styled(MDBNavbar)`
-  background: ${props => props.scrolled ? 'rgba(3, 5, 36, 0.712)' : '#111827'} !important;
+  background: ${props => props.scrolled ? 'rgba(5, 8, 49, 0.541)' : '#111827'} !important;
   backdrop-filter: ${props => props.scrolled ? 'blur(10px)' : 'none'};
 
   @media only screen and (min-width: 992px){
