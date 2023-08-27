@@ -1,13 +1,13 @@
-import React from "react";
-import './Loading.css';
+// import React from "react";
+// import './Loading.css';
 
-const Loading = () => {
+// const Loading = () => {
 
-  return (
-    <div class="ring">Loading
-        <span></span>
-    </div>
-  )
-}
+//   return (
+//     <div class="ring">Loading
+//         <span></span>
+//     </div>
+//   )
+// }
 
-export default Loading
+// export default Loading
