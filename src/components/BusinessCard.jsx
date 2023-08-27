@@ -8,33 +8,7 @@ import {
   MDBBtn,
   MDBCardImage,
 } from "mdb-react-ui-kit";
-import cardData from "./CardData";
-
-const Text1 = styled.div`
-  text-align: center;
-  margin: 2rem auto;
-  max-width: 960px;
-  padding: 10px;
-  font-size: 1.2rem;
-`;
-
-const CardBody = styled.div`
-  flex-wrap: wrap;
-  margin-right: 50px;
-  margin-left: 50px;
-`;
-
-const MDBCards = styled(MDBCard)`
-  margin: 0px;
-  height: 105%;
-`;
-
-const Title = styled.h4`
-  font-weight: 700;
-  color: black;
-  font-size: 2rem;
-  margin-bottom: 1rem;
-`;
+import BusinessData from "./BusinessData";
 
 export function CardList() {
   return (
@@ -52,7 +26,7 @@ export function CardList() {
         </p>
       </Text1>
       <CardBody className="d-md-flex row justify-content-md-center">
-        {cardData.map((card) => (
+        {BusinessData.map((card) => (
           <div className="col-12 col-sm-6 col-md-3 p-4">
             <MDBCards>
               <MDBCard className="h-100" key={card.id}>
@@ -84,3 +58,29 @@ export function CardList() {
 }
 
 export default CardList;
+
+const CardBody = styled.div`
+  flex-wrap: wrap;
+  margin-right: 50px;
+  margin-left: 50px;
+`;
+
+const MDBCards = styled(MDBCard)`
+  margin: 0px;
+  height: 105%;
+`;
+
+const Title = styled.h4`
+  font-weight: 700;
+  color: black;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+`;
+
+const Text1 = styled.div`
+  text-align: center;
+  margin: 2rem auto;
+  max-width: 960px;
+  padding: 10px;
+  font-size: 1.2rem;
+`;

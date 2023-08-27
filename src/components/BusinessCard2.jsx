@@ -10,24 +10,12 @@ import {
   MDBRow,
   MDBCol,
 } from "mdb-react-ui-kit";
-import horCardData from "./HCardData";
-
-const Text1 = styled.div`
-  text-align: center;
-  margin: 2rem auto;
-  max-width: 960px;
-  padding-bottom: 10px;
-  font-size: 1.2rem;
-`;
-
-const Title = styled.h2`
-  font-weight: 700;
-`;
+import BusinessCard2 from "./BusinessData2";
 
 export function HorizontalCardList() {
   return (
     <div>
-      {horCardData.map((card) => (
+      {BusinessCard2.map((card) => (
         <div className="m-5 ">
           <MDBCard key={card.id}>
             <MDBRow className="g-0">
@@ -112,3 +100,15 @@ export function HorizontalCardList() {
 }
 
 export default HorizontalCardList;
+
+const Text1 = styled.div`
+  text-align: center;
+  margin: 2rem auto;
+  max-width: 960px;
+  padding-bottom: 10px;
+  font-size: 1.2rem;
+`;
+
+const Title = styled.h2`
+  font-weight: 700;
+`;
