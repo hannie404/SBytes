@@ -3,12 +3,9 @@ import * as reactIconsRi from "https://cdn.skypack.dev/react-icons@4.2.0/ri";
 import * as reactJss from "https://cdn.skypack.dev/react-jss@10.5.1";
 import React, { useState, createContext, useContext } from 'react';
 import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
-<<<<<<< HEAD
 import { styled } from "styled-components";
 import { LogoDark } from '../assets';
-=======
 import axios from "axios";
->>>>>>> 8381cfd44096392b6b047ff3e8a30e1ba95aa05f
 const { ThemeProvider, withStyles } = reactJss;
 const { FaChessBishop, FaPlusCircle, FaArrowLeft } = reactIconsFa;
 const { RiMoonClearLine, RiSunLine } = reactIconsRi;
@@ -606,12 +603,12 @@ function LoginPage(props) {
       formData.append('password', password);
 
       await axios
-      .post("/api/accounts/login", formData)
+      .post("/api/login", formData)
       .then(({data}) => {
-         console.log(data.Message);
+         
          alert(`here ${data.Message}`);
-         console.log(data.User)
-         history("/");
+         setCurrentUser(data.User);
+         history("/", {state : currentUser});
       })
       .catch(({response}) => {
          if (response.status === 422) {  // 422 - Unprocessable Entity

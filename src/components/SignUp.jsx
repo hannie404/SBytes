@@ -11,7 +11,8 @@ import {
 } from 'mdb-react-ui-kit';
 import { Logo } from '../assets';
 import styled from 'styled-components';
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 export default function SignUp() {
   const [formValue, setFormValue] = useState({
@@ -24,6 +25,10 @@ export default function SignUp() {
 
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
+
+  const [loading, setLoading] = useState(false);
+
+  const navigate = useNavigate();
 
   const onChange = (e) => {
     const { name, value } = e.target;
@@ -48,7 +53,41 @@ export default function SignUp() {
     if (!emailValidationResult && !passwordValidationResult) {
       alert('Form submitted successfully'); 
     }
+
   };
+
+  const onSubmitHandler = async (e) => {
+    e.preventDefault();
+    alert("clicked");
+    setLoading(true);
+
+    const formData = new FormData();
+
+    formData.append('FirstName', formValue.fname);
+    formData.append('LastName', formValue.lname);
+    formData.append('email', formValue.email);
+    formData.append('password', formValue.pass);
+    formData.append('password_confirmation', formValue.confirmPass);
+
+    await axios
+    .post("/api/register", formData)
+    .then(({data}) => {
+      alert(data.Message);
+      setLoading(false);
+
+      navigate("/SignIn");
+    })
+    .catch(({response}) => {
+      if (response.status === 422) {  // 422 - Unprocessable Entity
+        alert(`there ${response.data.errors}`);
+        setLoading(false);
+      } else {
+        alert(`here ${response.data.message}`);
+        setLoading(false);
+      }
+    })
+
+  }
 
   const emailValidate = (value) => {
     const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
@@ -68,6 +107,19 @@ export default function SignUp() {
   
     return '';
   };
+
+  if (loading) {
+    return (
+      <div>
+        <h1>
+          Loading...
+          <div className="spinner-border text-secondary" role="status">
+            <span className="visually-hidden">Loading...</span>
+          </div>
+        </h1>
+      </div>
+    );
+  }
 
   return (
     <MainContainer fluid className='d-flex flex-row justify-content-center align-items-center'>
@@ -140,7 +192,7 @@ export default function SignUp() {
             <MDBCheckbox label='Agree to terms and privacy' id='invalidCheck' required />
           </Form>
           <Form className='col-md-12 d-flex flex-column justify-content-center'>
-            <MDBBtn className='mb-3 p-3 btn-success' type='submit'>SIGN UP</MDBBtn>
+            <MDBBtn className='mb-3 p-3 btn-success' type='submit' onClick={onSubmitHandler} >SIGN UP</MDBBtn>
             <MDBBtn className='btn-light' type='reset'><GoogleImg src={Google} />SIGN UP WITH GOOGLE</MDBBtn>
           </Form>
           <Form className='d-flex justify-content-center text-light'>

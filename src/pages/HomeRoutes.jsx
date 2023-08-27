@@ -12,6 +12,7 @@ import Monitors from '../pages/products/Monitors';
 import SignUp from '../components/SignUp';
 import SignIn from '../components/SignIn';
 import { Routes, Route } from 'react-router-dom';
+import CartCard from '../components/CartCard';
 
 function HomeRoutes() {
   return (
@@ -32,6 +33,7 @@ function HomeRoutes() {
         <Route path='/Cart' element={<Cart/>}></Route>
         <Route path='/SignUp' element={<SignUp/>}></Route>
         <Route path='/SignIn' element={<SignIn/>}></Route>
+        <Route path='/CartCard' element={<CartCard/>}></Route>
       </Routes>
     </div>
   )

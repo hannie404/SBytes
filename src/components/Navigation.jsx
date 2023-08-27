@@ -19,9 +19,12 @@ import {
   MDBCollapse,
 } from 'mdb-react-ui-kit';
 
-export default function App() {
+export default function App({currentUser}) {
   const [showBasic, setShowBasic] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+
+  const user = currentUser;
+
   useEffect(() => {
     const handleScroll = () => {
         const offset = window.scrollY;
@@ -91,6 +94,7 @@ export default function App() {
             <SearchBar><SearchIcon src={Search} /></SearchBar>
             
             <LinkPage to='/SignUp'>
+              {user.FirstName}
               <img src={ User } className='ms-lg-3 ms-md-2 ms-2'/>
             </LinkPage>
             
