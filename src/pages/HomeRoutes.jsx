@@ -11,6 +11,9 @@ import Laptops from '../pages/products/Laptops';
 import Monitors from '../pages/products/Monitors';
 import SignUp from '../components/SignUp';
 import SignIn from '../components/SignIn';
+import Admin from './Admin/Admin';
+import LogIn from '../components/LogIn';
+import Sample from './Sample';
 import { Routes, Route } from 'react-router-dom';
 
 function HomeRoutes() {
@@ -32,6 +35,9 @@ function HomeRoutes() {
         <Route path='/Cart' element={<Cart/>}></Route>
         <Route path='/SignUp' element={<SignUp/>}></Route>
         <Route path='/SignIn' element={<SignIn/>}></Route>
+        <Route path='/Admin' element={<Admin/>}></Route>
+        <Route path='/LogIn' element={<LogIn/>}></Route>
+        <Route path='/Sample' element={<Sample/>}></Route>
       </Routes>
     </div>
   )

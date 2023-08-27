@@ -12,14 +12,68 @@ import {
 import { Logo } from '../assets';
 import styled from 'styled-components';
 import { NavLink, useLocation } from 'react-router-dom';
+import axios from "axios";
+
+
 
 export default function SignIn() {
+  const [formValue, setFormValue] = useState({
+    email: '',
+    pass: '',
+  });
+
+  const [emailError, setEmailError] = useState('');
+  const [passwordError, setPasswordError] = useState('');
+
+  const onChange = (e) => {
+    const { name, value } = e.target;
+    setFormValue({ ...formValue, [name]: value });
+
+    if (name === 'email') {
+      setEmailError(emailValidate(value));
+    } else if (name === 'pass' || name === 'confirmPass') {
+      setPasswordError(passwordValidate(value));
+    }
+  };
+
+  const loginSubmitHandler = async (e) => {
+    e.preventDefault();
+  
+      const emailValidationResult = emailValidate(formValue.email);
+      const passwordValidationResult = passwordValidate(formValue.pass);
+  
+      setEmailError(emailValidationResult);
+      setPasswordError(passwordValidationResult);
+  
+      if (!emailValidationResult && !passwordValidationResult) {
+        alert('Form submitted successfully'); 
+      }
+  }
+
+  const emailValidate = (value) => {
+    const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+
+    if (!value) return 'Email is required';
+    if (!emailRegex.test(value)) return 'Please provide a valid email';
+    return '';
+  };
+
+  const passwordValidate = (value) => {
+    if (!value) return 'Password is required';
+    if (value.length < 6) return 'Password must be at least 6 characters';
+    if (!/[a-z]/.test(value)) return 'Password must contain at least one lowercase letter';
+    if (!/[A-Z]/.test(value)) return 'Password must contain at least one uppercase letter';
+    if (!/[0-9]/.test(value)) return 'Password must contain at least one digit';
+    if (!/[$@$!%*?&]/.test(value)) return 'Password must contain at least one special character ($, @, !, %, *, ?, &)';
+  
+    return '';
+  };
 
   return (
     <MainContainer fluid className='d-flex flex-row justify-content-center align-items-center'>
       <FormContainer className='w-lg-100  d-flex flex-column justify-content-center align-items-center p-3 rounded-3'>
         <h1 className='text-light pb-3'>Sign In</h1>
-        <MDBValidation className='row g-3 d-flex justify-content-center text-light'>
+        <MDBValidation onSubmit={loginSubmitHandler} className='row g-3 d-flex justify-content-center text-light'>
           <Form className='col-md-12' feedback='Incorrect email' invalid>
             <MDBInput
               className='text-light'
