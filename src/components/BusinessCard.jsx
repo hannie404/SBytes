@@ -10,7 +10,7 @@ import {
 } from "mdb-react-ui-kit";
 import BusinessData from "./BusinessData";
 
-export function CardList() {
+export function BusinessDataList() {
   return (
     <div>
       <Text1>
@@ -57,7 +57,7 @@ export function CardList() {
   );
 }
 
-export default CardList;
+export default BusinessDataList;
 
 const CardBody = styled.div`
   flex-wrap: wrap;
@@ -70,7 +70,7 @@ const MDBCards = styled(MDBCard)`
   height: 105%;
 `;
 
-const Title = styled.h4`
+const Title = styled.div`
   font-weight: 700;
   color: black;
   font-size: 2rem;
