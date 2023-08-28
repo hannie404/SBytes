@@ -17,7 +17,7 @@ function CartCard() {
 
   return (
     <div>
-      <CardContainer className="col-lg-3 col-md-6 m-lg-3 m-md-3 m-2 d-flex justify-content-center">
+      <CardContainer className="col-lg-4 col-md-6 m-lg-3 m-md-3 m-2 d-flex justify-content-center">
         <Card className="text-light">
           <MDBCardTitle className="mb-4"><strong>Order Summary</strong></MDBCardTitle>
           <div className="d-flex justify-content-between">
