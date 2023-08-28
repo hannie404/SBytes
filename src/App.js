@@ -1,5 +1,4 @@
 import React from 'react';
-import Form from './components/Form';
 import styled from 'styled-components';
 import HomeRoutes from './pages/HomeRoutes';
 

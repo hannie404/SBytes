@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import CardList from '../components/CardList';
 import CartCard from '../components/CartCard';
 import LaptopShoppingCart from '../components/ShoppingCart';
+import Product from '../components/Product';
 
 function Sample() {
   return (
@@ -14,8 +15,9 @@ function Sample() {
       <CardList /> */}
       {/* <UsersTable /> */}
       {/* <ProductsTable /> */}
-      <LaptopShoppingCart />
-      <CartCard />
+      {/* <LaptopShoppingCart />
+      <CartCard /> */}
+      <Product />
     </Bg>
   )
 }
