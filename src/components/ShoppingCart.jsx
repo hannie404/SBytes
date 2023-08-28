@@ -27,17 +27,14 @@ const laptops = [
 ];
 
 const LaptopShoppingCart = () => {
-  // State to track quantity
   const [quantities, setQuantities] = useState(laptops.map((laptop) => laptop.quantity));
 
-  // Function to handle increment
   const incrementQuantity = (index) => {
     const newQuantities = [...quantities];
     newQuantities[index] = Math.max(newQuantities[index] + 1, 1);
     setQuantities(newQuantities);
   };
 
-  // Function to handle decrement
   const decrementQuantity = (index) => {
     const newQuantities = [...quantities];
     newQuantities[index] = Math.max(newQuantities[index] - 1, 1);
@@ -68,13 +65,11 @@ const LaptopShoppingCart = () => {
                 <div className="d-flex flex-column ms-3 pt-4">
                   <h3>{info.productSeriesName}</h3>
                   <p><span className="text-secondary pe-2">Color</span> {info.color}</p>
-                  <div className="d-flex">
-                    <div className="d-flex w-auto">
-                      <Button className="form-control" onClick={() => decrementQuantity(index)}>-</Button>
-                      <Quantity type="number" value={quantities[index]} className="form-control" />
-                      <Button className="form-control" onClick={() => incrementQuantity(index)}>+</Button>
-                      <Remove type="button" value="REMOVE" className="btn text-danger"/>
-                    </div>
+                  <div className="d-flex w-auto">
+                    <Button className="form-control" onClick={() => decrementQuantity(index)}>-</Button>
+                    <Quantity type="number" value={quantities[index]} className="form-control" />
+                    <Button className="form-control" onClick={() => incrementQuantity(index)}>+</Button>
+                    <Remove type="button" value="REMOVE" className="btn text-danger"/>
                   </div>
                 </div>
               </div>
