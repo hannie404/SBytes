@@ -11,43 +11,43 @@ import { useLocation } from "react-router-dom";
 import axios from 'axios';
 
 function Home() {
-  const currentUser = useLocation();
-  const authUser = currentUser.state;
+  // const currentUser = useLocation();
+  // const authUser = currentUser.state;
 
-  const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
+  // const [products, setProducts] = useState([]);
+  // const [loading, setLoading] = useState(true);
 
-  const fetchProducts = async () => {
-    await axios.get("/api/products").then(({ status, data }) => {
-      if (status === 200) {
-        setProducts(data.products);
-        setLoading(false);
-      }
-    });
-  };
+  // const fetchProducts = async () => {
+  //   await axios.get("/api/products").then(({ status, data }) => {
+  //     if (status === 200) {
+  //       setProducts(data.products);
+  //       setLoading(false);
+  //     }
+  //   });
+  // };
 
-  useEffect(() => {
-    fetchProducts();
-  },[]);
+  // useEffect(() => {
+  //   fetchProducts();
+  // },[]);
 
-  if (loading) {
-    return (
-      <div>
-        <h1>
-          Loading...
-          <div className="spinner-border text-secondary" role="status">
-            <span className="visually-hidden">Loading...</span>
-          </div>
-        </h1>
-      </div>
-    );
-  }
+  // if (loading) {
+  //   return (
+  //     <div>
+  //       <h1>
+  //         Loading...
+  //         <div className="spinner-border text-secondary" role="status">
+  //           <span className="visually-hidden">Loading...</span>
+  //         </div>
+  //       </h1>
+  //     </div>
+  //   );
+  // }
   
 
   return (
     <div>
-      <Navigation currentUser={authUser} />
-      {/* <Navigation/> */}
+      {/* <Navigation currentUser={authUser} /> */}
+      <Navigation/>
       <ShopCarousel />
       <div className="container-fluid d-flex flex-wrap p-3 justify-content-center pt-5 align-items-center m-0">
         <div className="col-12 col-md-6 p-3 d-flex justify-content-center">
@@ -66,9 +66,9 @@ function Home() {
         </div>
         
       </div>
-      <SlideCard laptops={products} title={"Featured Products"} currentUser={authUser} />
+      {/* <SlideCard laptops={products} title={"Featured Products"} currentUser={authUser} /> */}
       {/* <SlideCard title={'Featured Products'} /> */}
-      {/* <SlideCard laptops={topSaleData} /> */}
+      <SlideCard laptops={topSaleData} />
       <Footer />
     </div>
   );
