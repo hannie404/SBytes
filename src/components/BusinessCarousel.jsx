@@ -1,18 +1,15 @@
-import React from 'react';
-import styled from 'styled-components';
-import {
-  MDBCarousel,
-  MDBCarouselItem,
-} from 'mdb-react-ui-kit';
+import React from "react";
+import styled from "styled-components";
+import { MDBCarousel, MDBBtn, MDBCarouselItem } from "mdb-react-ui-kit";
 
 const StyledCarousel = styled(MDBCarousel)`
   .carousel-control-prev,
   .carousel-control-next {
     width: 50px;
-    transition: all 0.3s ease;  // Add transition effect here 
+    transition: all 0.3s ease; // Add transition effect here
 
     &-icon {
-      background-image: url('path_to_your_new_arrow_image.svg');
+      background-image: url("path_to_your_new_arrow_image.svg");
       width: 30px;
       height: 30px;
       background: #111827;
@@ -52,37 +49,64 @@ const StyledCarousel = styled(MDBCarousel)`
 
   .carousel-indicators {
     li {
-      background-color: #DC2626;
+      background-color: #dc2626;
 
       &.active {
-        background-color: #DC2626;
+        background-color: #dc2626;
       }
     }
   }
 `;
 
-
 export default function Carousel() {
   return (
     <StyledCarousel showControls showIndicators>
       <MDBCarouselItem
-        className='w-100 d-block'
+        className="w-100 d-block"
         itemId={1}
-        src='https://images.acer.com/is/image/acer/acer-for-business-solution-hero-banner-business:Primary-Hero-XL'
-        alt='...'
+        src="https://images.acer.com/is/image/acer/acer-for-business-solution-hero-banner-business:Primary-Hero-XL"
+        alt="..."
       >
-        <h5>First slide label</h5>
-        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+        <Text1>
+          <Title>Sbytes for Business</Title>
+          <p>
+            We are committed to delivering customizable and <br />
+            cutting-edge devices that give your businesses <br /> the
+            performance it needs in an always-on, digitally-driven <br /> world.
+          </p>
+        </Text1>
       </MDBCarouselItem>
       <MDBCarouselItem
-        className='w-100 d-block'
+        className="w-100 d-block"
         itemId={2}
-        src='https://images.acer.com/is/image/acer/acer-for-business-solution-hero-banner-microsoft-inspire:Primary-Hero-XL'
-        alt='...'
+        src="https://images.acer.com/is/image/acer/acer-for-business-solution-hero-banner-microsoft-inspire:Primary-Hero-XL"
+        alt="..."
       >
-        <h5>Second slide label</h5>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <Text1>
+          <Title>Microsoft Inspire 2023</Title>
+          <p>
+            Check out Sbytes at Microsoft Inspire 2023 to <br /> stay up to date
+            on our latest sustainability efforts and products <br /> that
+            empower your business.
+          </p>
+          <MDBBtn className="bg-danger">Explore</MDBBtn>
+        </Text1>
       </MDBCarouselItem>
     </StyledCarousel>
   );
 }
+
+const Text1 = styled.div`
+  text-align: left;
+  margin: 5rem 0.5rem;
+  max-width: 960px;
+  padding: 10px;
+  font-size: 1.2rem;
+`;
+
+const Title = styled.div`
+  font-weight: 800;
+  color: white;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+`;
