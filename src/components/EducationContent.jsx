@@ -20,18 +20,30 @@ const Text1 = styled.div`
 
 const CardBody = styled.div`
     flex-wrap: wrap;
-    margin-right: 200px;
-    margin-left: 200px;
+    max-width: 1200px;
+    margin: 0 auto;
 `;
 
 const MDBCards = styled(MDBCard)`
     margin: 30px;
     height: 520px;
+
+    @media only screen and (max-width: 860px){
+        height: 620px;
+      }
 `;
 
 const MDBCards2 = styled(MDBCard)`
     margin: 20px;
-    height: 540px;
+    height: 550px;
+
+    @media only screen and (max-width: 1188px){
+        height: 600px;
+      }
+    
+    @media only screen and (max-width: 1000px){
+        height: 700px;
+      }
 `;
 
 const Title = styled.h4`
@@ -51,7 +63,7 @@ const Btn = styled.a`
 
 export default function EducationContent(){
     return(
-        <div className='text-white'>
+        <div>
             <div className='pb-5'>
                 <div>
                     <img src="https://images.acer.com/is/image/acer/Education_Home_Banner_2022_Large_v3:Primary-Hero-XL" alt="studentphoto" className='w-100'/>
@@ -81,7 +93,7 @@ export default function EducationContent(){
                                 </MDBCards>
                             </div>
                         )
-                    })}    
+                    })} 
                 </CardBody>
             </div>
 

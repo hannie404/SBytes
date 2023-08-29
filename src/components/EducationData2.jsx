@@ -27,13 +27,13 @@ const Data2 = [
         id: "5",
         src: "https://images.acer.com/is/image/acer/Acer_Service-eLearing-large-1?$Rectangular-L$",
         title: "Service & Support Programs",
-        message: "With over 40 years of experience in the world of computing, Acer understands the challenges within the evolving education environment. We are dedicated to aligning our award-winning service programs with educators and offering outstanding assistance, technical support, and free on-demand training.",
+        message: "With over 40 years of experience in the world of computing, Sbytes understands the challenges within the evolving education environment. We are dedicated to aligning our award-winning service programs with educators and offering outstanding assistance, technical support, and free on-demand training.",
     },
     {
         id: "6",
         src: "https://images.acer.com/is/image/acer/sourcing-partners?$Rectangular-L$",
         title: "Sourcing Partners",
-        message: "Through Acer Education Resell Partners, we get in touch with schools to provide adaptive end-to-end solutions that fit their tailored needs.",
+        message: "Through Sbytes Education Resell Partners, we get in touch with schools to provide adaptive end-to-end solutions that fit their tailored needs.",
     },
     {
         id: "7",
@@ -45,7 +45,7 @@ const Data2 = [
         id: "8",
         src: "https://images.acer.com/is/image/acer/train-students-real-world?$Rectangular-L$",
         title: "Case Study - Train Students with Real-World Skills",
-        message: "By adopting Acer's Service eLearning Repair Program, Lake Belton High School provides students with real-world skills and experience by working at the Technology Help Desk.",
+        message: "By adopting Sbytes Service eLearning Repair Program, Lake Belton High School provides students with real-world skills and experience by working at the Technology Help Desk.",
     },
     
 ]
