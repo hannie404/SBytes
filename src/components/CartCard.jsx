@@ -17,17 +17,21 @@ function CartCard() {
 
   return (
     <div>
-      <CardContainer className="col-lg-4 col-md-6 m-lg-3 m-md-3 m-2 d-flex justify-content-center">
+      <CardContainer className="col-lg-6 col-md-6 m-lg-3 m-md-3 m-2 d-flex justify-content-center">
         <Card className="text-light">
           <MDBCardTitle className="mb-4"><strong>Order Summary</strong></MDBCardTitle>
-          <div className="d-flex justify-content-between">
-            <MDBCardText>Price</MDBCardText>
-            {/* <MDBCardText>₱{USformatter.format(product.Price)}</MDBCardText> */}
-            <MDBCardText>$ 455.99</MDBCardText>
+          <div>
+            <ul className="m-0 ps-0">
+              <li className="d-flex justify-content-between">
+                {/* <MDBCardText>₱{USformatter.format(product.Price)}</MDBCardText> */}
+                <MDBCardText>Price</MDBCardText>
+                <MDBCardText>$ 455.99</MDBCardText>
+              </li>
+            </ul>
           </div>
           <div className="d-flex justify-content-between">
-            <MDBCardText>Quantity</MDBCardText>
             {/* <MDBCardText>{quantity}</MDBCardText> */}
+            <MDBCardText>Quantity</MDBCardText>
             <MDBCardText>1</MDBCardText>
           </div>
           <div className="d-flex justify-content-between">
@@ -36,8 +40,8 @@ function CartCard() {
           </div>
           <hr />
           <div className="d-flex justify-content-between">
-            <MDBCardText>TOTAL</MDBCardText>
             {/* <MDBCardText>₱{USformatter.format(product.Price * quantity)}</MDBCardText> */}
+            <MDBCardText>TOTAL</MDBCardText>
             <MDBCardText>$ 455.99</MDBCardText>
           </div>
           {/* <button type="submit" onClick={placeOrder}></button> */}

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Subscript } from "react-bootstrap-icons";
 import styled from "styled-components";
 
@@ -28,6 +28,30 @@ const laptops = [
 
 const LaptopShoppingCart = () => {
   const [quantities, setQuantities] = useState(laptops.map((laptop) => laptop.quantity));
+  const [cart, setCart] = useState(laptops); // Use a state to manage the cart items
+
+  const removeItem = (index) => {
+    // Create a copy of the current cart, excluding the item to be removed
+    const updatedCart = [...cart];
+    updatedCart.splice(index, 1);
+    setCart(updatedCart);
+  };
+  
+  const calculateTotalItems = () => {
+    let total = 0;
+    laptops.forEach((laptop, index) => {
+      total += quantities[index];
+    });
+    return total;
+  };
+
+  const calculateTotalPrice = () => {
+    let totalPrice = 0;
+    laptops.forEach((laptop, index) => {
+      totalPrice += laptop.price * quantities[index];
+    });
+    return totalPrice;
+  };
 
   const incrementQuantity = (index) => {
     const newQuantities = [...quantities];
@@ -41,16 +65,12 @@ const LaptopShoppingCart = () => {
     setQuantities(newQuantities);
   };
 
-  const calculateTotalItems = () => {
-    let total = 0;
-    laptops.forEach((laptop, index) => {
-      total += quantities[index];
-    });
-    return total;
-  };
+  useEffect(() => {
+    calculateTotalPrice();
+  }, [quantities]);
 
   return (
-    <Container className="container-fluid col-lg-8 col-md-10 col-11 p-3 pb-0 m-3 text-light">
+    <Container className="container-fluid col-lg-8 col-md-10 col-11 p-4 pb-2 m-3 text-light">
       <Title className="d-flex">
         CART
         <span className="fs-5 ps-3 pt-2 text-secondary">{calculateTotalItems()} ITEMS</span>
@@ -63,18 +83,18 @@ const LaptopShoppingCart = () => {
               <div className="d-flex flex-row">
                 <LaptopImg src={info.imageUrl} alt="" />
                 <div className="d-flex flex-column ms-3 pt-4">
-                  <h3>{info.productSeriesName}</h3>
+                  <h4>{info.productSeriesName}</h4>
                   <p><span className="text-secondary pe-2">Color</span> {info.color}</p>
                   <div className="d-flex w-auto">
                     <Button className="form-control" onClick={() => decrementQuantity(index)}>-</Button>
                     <Quantity type="number" value={quantities[index]} className="form-control" />
                     <Button className="form-control" onClick={() => incrementQuantity(index)}>+</Button>
-                    <Remove type="button" value="REMOVE" className="btn text-danger"/>
+                    <Remove type="button" value="REMOVE" className="btn text-danger" onClick={() => removeItem(index)}/>
                   </div>
                 </div>
               </div>
               <div>
-                <h4 className="p-3">${info.price}</h4>
+                <h4>${info.price * quantities[index]}</h4>
               </div>
             </CardBG>
           </Card>

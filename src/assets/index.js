@@ -18,3 +18,9 @@ export { default as Laptop2 } from './png/laptop2.png';
 // logo
 export { default as Google } from './png/google2.png';
 export { default as Spiral } from './svg/spiral.svg';
+
+// mastercards
+export { default as Mastercard } from './png/mastercard.png';
+export { default as Visa } from './png/visa.png';
+export { default as Truck } from './svg/truck.svg';
+
