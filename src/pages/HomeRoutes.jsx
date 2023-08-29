@@ -15,6 +15,7 @@ import Admin from './Admin/Admin';
 import LogIn from '../components/LogIn';
 import Sample from './Sample';
 import ProductPage from './ProductPage';
+import Product from '../components/Product';
 import { Routes, Route } from 'react-router-dom';
 import CartCard from '../components/CartCard';
 

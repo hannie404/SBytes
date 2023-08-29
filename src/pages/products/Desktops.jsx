@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import Navigation from '../../components/Navigation';
 import Footer from '../../components/Footer';
+import { NavLink, useLocation } from 'react-router-dom';
+
 
 const DesktopsInfo = [
   {
@@ -32,7 +34,7 @@ function Desktops() {
             <CardImg src={info.ImageUrl} />
             <h3 className='mt-3'>{info.Type}</h3>
             <p className='text-center mt-3'>{info.Description}</p>
-            <input type="button" value="Learn More" className='btn btn-light w-100'/>
+            <NavLink to='/ProductPage' className="w-100"><input type="button" value="Learn More" className='btn btn-light w-100'/></NavLink>
           </Card>
         ))}
       </div>

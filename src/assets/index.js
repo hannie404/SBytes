@@ -26,3 +26,5 @@ export { default as Truck } from './svg/truck.svg';
 export { default as Haart } from './svg/heart.svg';
 export { default as Wave } from './svg/wave.svg';
 
+// business svg
+// export { default as Cart } from './svg/shopping-cart.svg';

@@ -88,11 +88,11 @@ export default function App({currentUser}) {
                   Products
                 </LinkDropdown>
                 <MDBDropdownMenu className='mt-lg-3'>
-                  <LinkPageProducts link ><NavLinkBytes to='/Laptops'>Laptops</NavLinkBytes></LinkPageProducts>
-                  <LinkPageProducts link ><NavLinkBytes to='/Desktops'>Desktops & All-in-Ones</NavLinkBytes></LinkPageProducts>
-                  <LinkPageProducts link ><NavLinkBytes to='/Chromebooks'>Chromebooks</NavLinkBytes></LinkPageProducts>
-                  <LinkPageProducts link ><NavLinkBytes to='/Tablets'>Tablets</NavLinkBytes></LinkPageProducts>
-                  <LinkPageProducts link ><NavLinkBytes to='/Monitors'>Monitors</NavLinkBytes></LinkPageProducts>
+                  <LinkPageProducts link href='/#/Laptops'>Laptops</LinkPageProducts>
+                  <LinkPageProducts link href='/#/Desktops'>Desktops & All-in-Ones</LinkPageProducts>
+                  <LinkPageProducts link href='/#/Chromebooks'>Chromebooks</LinkPageProducts>
+                  <LinkPageProducts link href='/#/Tablets'>Tablets</LinkPageProducts>
+                  <LinkPageProducts link href='/#/Monitors'>Monitors</LinkPageProducts>
                 </MDBDropdownMenu>
               </MDBDropdown>
             </MDBNavbarItem>
@@ -119,8 +119,8 @@ export default function App({currentUser}) {
                   </div>
                 </LinkDropdown>
                 <MDBDropdownMenu className='mt-2'>
-                  <LinkPageProducts link ><NavLinkBytes to='/'>Log out</NavLinkBytes></LinkPageProducts>
-                  <LinkPageProducts link ><NavLinkBytes to='/Admin'>Admin</NavLinkBytes></LinkPageProducts>
+                  <LinkPageProducts link href='/#/SignUp'>Log Out</LinkPageProducts>
+                  <LinkPageProducts link href='/#/Admin'>Admin</LinkPageProducts>
                 </MDBDropdownMenu>
               </SbyteUser>
             ))}
