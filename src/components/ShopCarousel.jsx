@@ -6,7 +6,7 @@ import {
 } from 'mdb-react-ui-kit';
 
 const StyledCarousel = styled(MDBCarousel)`
-  padding-top: 6rem !important;
+  /* padding-top: 6rem; */
 
   .carousel-control-prev,
   .carousel-control-next {
@@ -25,14 +25,14 @@ const StyledCarousel = styled(MDBCarousel)`
       border-radius: 50%;
     }
 
-    @media only screen and (max-width: 992px) {
+    @media only screen and (min-width: 992px) {
       &-icon {
         background: none;
         width: 20px;
         height: 20px;
       }
 
-      padding-top: 1rem !important;
+      /* padding-top: 0rem !important; */
     }
   }
 
@@ -72,7 +72,7 @@ const StyledCarousel = styled(MDBCarousel)`
 
 export default function ShopCarousel() {
   return (
-    <StyledCarousel showControls showIndicators>
+    <StyledCarousel showControls showIndicators className='mt-lg-5 pt-lg-5 mt-md-5 pt-md-2 mt-5 pt-2'>
       <MDBCarouselItem
         className='w-100 d-block'
         itemId={1}

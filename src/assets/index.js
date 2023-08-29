@@ -23,4 +23,6 @@ export { default as Spiral } from './svg/spiral.svg';
 export { default as Mastercard } from './png/mastercard.png';
 export { default as Visa } from './png/visa.png';
 export { default as Truck } from './svg/truck.svg';
+export { default as Haart } from './svg/heart.svg';
+export { default as Wave } from './svg/wave.svg';
 

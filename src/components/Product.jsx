@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { Heart, Wave } from "../assets";
 
 
 const product = [
@@ -9,7 +10,7 @@ const product = [
     ProductModel: 'SFG14-71-54AP',
     Stock: '5',
     Price: '48299',
-    ImageUrl: 'https://images.acer.com/is/image/acer/acer-endurot1-et11031w_wp_win10_01?$Series-Component-XL$',
+    ImageUrl: 'https://images.acer.com/is/image/acer/acer-iconia-tab-p10-p10-11-wallpaper-ui-iron-gray-01?$Visual-Filter-XL$',
     Cpu: 'Intel Core i5-1335U (13th Gen)',
     Memory: '16 GB',
     IntegratedGfx: 'Intel Iris Xe Max Graphics',
@@ -47,11 +48,11 @@ function Product() {
   };
 
   return (
-    <div className='d-flex'>
+    <Container className='d-flex mt-5 pt-5 justify-content-evenly align-items-center vh-100 text-light'>
       {product.map((info, index) => (
         <>
           <div className="">
-            <img src={info.ImageUrl} alt="" />
+            <ProductImg src={info.ImageUrl} alt="" />
           </div>
           <div className="d-flex flex-column">
             <h1>{info.ProductSeriesName}</h1>
@@ -70,7 +71,7 @@ function Product() {
               <Info><b>OperatingSystem:</b>&nbsp;{info.OperatingSystem}</Info>
               <Info><b>Package:</b>&nbsp;{info.Package}</Info>
             </div>
-            <div className="d-flex w-auto">
+            <div className="d-flex w-auto mt-3">
               <Button className="form-control" onClick={() => decrementQuantity(index)}>-</Button>
               <Quantity type="number" value={quantities[index]} className="form-control" />
               <Button className="form-control" onClick={() => incrementQuantity(index)}>+</Button>
@@ -78,16 +79,35 @@ function Product() {
             </div>
             <p className="text-secondary"><b>Stock: </b>{info.Stock}</p>
             <div>
-              <input type="button" value="ADD TO WISHLIST" className="btn"/>
+              <button type="button" value="" className="btn btn-secondary d-flex align-items-center"><img src={Heart}/>&nbsp; ADD TO WISHLIST</button>
             </div>
           </div>
         </>
       ))}
-    </div>
+    </Container>
   )
 }
 
 export default Product;
+
+const ProductImg = styled.img`
+  width: 50rem;
+`;
+
+const Container = styled.div`
+  height: 100vh;
+  background: 
+  url(${Wave}),
+  linear-gradient(
+      to right,
+      #FBF4F9 0%,
+      #FBF4F9 40%,
+      #374151 40%,
+      #374151 100%
+  );
+  background-size: 130%;
+  background-position: center;
+`
 
 const Info = styled.p`
   margin-bottom: 0%;

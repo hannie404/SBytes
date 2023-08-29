@@ -14,6 +14,7 @@ import SignIn from '../components/SignIn';
 import Admin from './Admin/Admin';
 import LogIn from '../components/LogIn';
 import Sample from './Sample';
+import ProductPage from './ProductPage';
 import { Routes, Route } from 'react-router-dom';
 import CartCard from '../components/CartCard';
 
@@ -40,6 +41,7 @@ function HomeRoutes() {
         <Route path='/Admin' element={<Admin/>}></Route>
         <Route path='/LogIn' element={<LogIn/>}></Route>
         <Route path='/Sample' element={<Sample/>}></Route>
+        <Route path='/ProductPage' element={<ProductPage/>}></Route>
       </Routes>
     </div>
   )

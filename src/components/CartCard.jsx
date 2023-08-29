@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from 'react';
 import { useLocation } from "react-router-dom";
 import { MDBCard, MDBCardBody, MDBCardTitle, MDBCardText, MDBBtn } from "mdb-react-ui-kit"; // Import MDB components
 import styled from 'styled-components';
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 function CartCard() {
   // const data = useLocation();
   // const product = data.state[0];
@@ -14,6 +15,19 @@ function CartCard() {
   // const placeOrder = async () => {
 
   // }
+  const [orderPlaced, setOrderPlaced] = useState(false);
+
+  const notify = () => {
+    toast.success('Order placed successfully!', {
+      position: 'top-right',
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+    });
+    setOrderPlaced(true);
+  };
 
   return (
     <div>
@@ -45,7 +59,17 @@ function CartCard() {
             <MDBCardText>$ 455.99</MDBCardText>
           </div>
           {/* <button type="submit" onClick={placeOrder}></button> */}
-          <MDBBtn color="light" className="w-100 p-3">PLACE ORDER</MDBBtn>
+          {/* <MDBBtn color="light" className="w-100 p-3" onClick={notify}>PLACE ORDER</MDBBtn> */}
+          <ToastContainer />
+          <ToastContainer position="top-right" autoClose={3000} hideProgressBar={false} closeOnClick pauseOnHover draggable />
+          <MDBBtn
+            color="light"
+            className="w-100 p-3"
+            onClick={notify}
+            disabled={orderPlaced} // Disable the button once the order is placed
+          >
+            PLACE ORDER
+          </MDBBtn>
         </Card>
       </CardContainer>
     </div>

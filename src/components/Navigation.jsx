@@ -41,19 +41,38 @@ export default function App({currentUser}) {
     };
   }, []);
 
+  const username = [
+    {
+      fname: 'Annie',
+      lname: 'Nesh'
+    }
+  ]
+
   return (
     <NavBar scrolled={scrolled} expand='lg' dark bgColor='light' className='pt-lg-5 pb-lg-5 fixed-top'>
       <MDBContainer fluid>
-        <MDBNavbarBrandMobile href='#'><LogoBytes src={Logo}/></MDBNavbarBrandMobile>
+        <MDBNavbarBrandMobile href='#'><LogoBytes src={Logo} /></MDBNavbarBrandMobile>
+        
+        <div className="d-flex">
+          <HideLg className='d-flex input-group w-auto me-2 d-flex align-items-center'>            
+            <LinkPage to='/SignIn'>
+              <img src={ User } className='ms-lg-3 ms-md-2 ms-2'/>
+            </LinkPage>
+            
+            <LinkPage to='/Cart' className='mt-0'>
+              <img src={ Cart } className='ms-lg-3 ms-md-2 ms-2'/>
+            </LinkPage>
+          </HideLg>
 
-        <MDBNavbarToggler
-          aria-controls='navbarSupportedContent'
-          aria-expanded='false'
-          aria-label='Toggle navigation'
-          onClick={() => setShowBasic(!showBasic)}
-        >
-          <MDBIcon icon='bars' fas />
-        </MDBNavbarToggler>
+          <MDBNavbarToggler
+            aria-controls='navbarSupportedContent'
+            aria-expanded='false'
+            aria-label='Toggle navigation'
+            onClick={() => setShowBasic(!showBasic)}
+          >
+            <MDBIcon icon='bars' fas />
+          </MDBNavbarToggler>
+        </div>
 
         <MDBCollapse navbar show={showBasic}>
           <MDBNavbarNav className='mr-md-auto mb-2 mb-lg-0 w-auto'>
@@ -87,19 +106,34 @@ export default function App({currentUser}) {
             </MDBNavbarItem>
           </MDBNavbarNav>
 
-          <NavLogo to='/Admin'><LogoBytes src={Logo}/></NavLogo>
+          <NavLogo to='/'><LogoBytes src={Logo}/></NavLogo>
 
           <form className='d-flex input-group w-auto mt-sm-3 mt-lg-0 d-flex align-items-center'>
-            <SearchInput type='search' className='form-control' placeholder='Search' aria-label='Search' />
-            <SearchBar><SearchIcon src={Search} /></SearchBar>
+            {/* <SearchInput type='search' className='form-control' placeholder='Search' aria-label='Search' />
+            <SearchBar><SearchIcon src={Search} /></SearchBar> */}
+            {username.map((info, index) => (
+              <SbyteUser>
+                <LinkDropdown tag='a' role='button' className="ms-lg-0 nav-link d-flex align-items-center">
+                  <div key={index} className='me-2'>
+                    {info.fname} {info.lname}
+                  </div>
+                </LinkDropdown>
+                <MDBDropdownMenu className='mt-2'>
+                  <LinkPageProducts link ><NavLinkBytes to='/'>Log out</NavLinkBytes></LinkPageProducts>
+                  <LinkPageProducts link ><NavLinkBytes to='/Admin'>Admin</NavLinkBytes></LinkPageProducts>
+                </MDBDropdownMenu>
+              </SbyteUser>
+            ))}
             
-            <LinkPage to='/SignIn'>
-              <img src={ User } className='ms-lg-3 ms-md-2 ms-2'/>
-            </LinkPage>
-            
-            <LinkPage to='/Cart'>
-              <img src={ Cart } className='ms-lg-3 ms-md-2 ms-2'/>
-            </LinkPage>
+            <Hide className='d-flex'>
+              <LinkPage to='/SignIn'>
+                <img src={ User } className='ms-lg-3 ms-md-2 ms-2'/>
+              </LinkPage>
+              
+              <LinkPage to='/Cart'>
+                <img src={ Cart } className='ms-lg-3 ms-md-2 ms-2'/>
+              </LinkPage>
+            </Hide>
           </form>
 
         </MDBCollapse>
@@ -108,6 +142,15 @@ export default function App({currentUser}) {
   );
 }
 
+const SbyteUser = styled(MDBDropdown)`
+  width: 15rem;
+  display: flex;
+  justify-content: end;
+
+  @media only screen and (max-width: 991px){
+    justify-content: start;
+  }
+`;
 const NavBar = styled(MDBNavbar)`
   background: ${props => props.scrolled ? 'rgba(5, 8, 49, 0.541)' : '#111827'} !important;
   backdrop-filter: ${props => props.scrolled ? 'blur(10px)' : 'none'};
@@ -130,7 +173,7 @@ const LinkPage = styled(NavLink)`
   }
 
   @media only screen and (max-width: 992px){
-    margin-top: 1rem !important;
+    /* margin-top: 1rem !important; */
   }
 `;
 const LinkPageProducts = styled(MDBDropdownItem)`
@@ -198,4 +241,14 @@ const MDBNavbarBrandMobile = styled(MDBNavbarBrand)`
 `;
 const NavLinkBytes = styled(NavLink)`
   color: #1F2937;
+`;
+const Hide = styled.div`
+  @media only screen and (max-width: 991px){
+    display: none !important;
+  }
+`;
+const HideLg = styled.div`
+  @media only screen and (min-width: 991px){
+    display: none !important;
+  }
 `;
